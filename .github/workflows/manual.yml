@@ -7,8 +7,15 @@ on:
                 default: Hello
                 required: true
                 description: A cheerful work
+            log-level:
+                type: choice
+                options:
+                    - info
+                    - warn
+                    - error
 jobs:
     run:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "${{ inputs.greeting }}"
+            - run: echo "greeting = ${{ inputs.greeting }}"
+            - run: echo "log-level = ${{ inputs.log-level }}"
